@@ -29,6 +29,13 @@ const ItemPreview = (props) => {
     }
   };
 
+  // adds placeholder image if src not available
+  if (item.image) {
+    item.imgSrc = item.image;
+  } else {
+    item.imgSrc = "/placeholder.png";
+  }
+
   return (
     <div
       className="card bg-dark border-light p-3"
@@ -37,7 +44,7 @@ const ItemPreview = (props) => {
     >
       <img
         alt="item"
-        src={item.image}
+        src={item.imgSrc}
         className="card-img-top item-img"
         style={{ borderRadius: "20px" }}
       />
